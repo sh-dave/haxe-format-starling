@@ -1,0 +1,8 @@
+{
+	"name" : "format-starling",
+	"url" : "https://github.com/sh-dave/haxe-format-starling",
+	"contributors" : ["sh-dave"],
+	"description" : "starling atlas format",
+	"version" : "0.0.1",
+    "classPath" : "Sources"
+}
