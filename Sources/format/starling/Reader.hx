@@ -14,21 +14,10 @@ class Reader {
 			throw 'not a starling texture atlas';
 		}
 
-		var subTextures = [
+		var subTextures : Map<String, Data.SubTexture> = [
 			for (e in root.elements())
-				if (e.nodeName == 'SubTexture') {
-					e.get('name') => {
-						x : Std.parseInt(e.get('x')),
-						y : Std.parseInt(e.get('y')),
-						width : Std.parseInt(e.get('width')),
-						height : Std.parseInt(e.get('height')),
-						frameX : Std.parseInt(e.get('frameX')),
-						frameY : Std.parseInt(e.get('frameY')),
-						frameWidth : Std.parseInt(e.get('frameWidth')),
-						frameHeight : Std.parseInt(e.get('frameHeight')),
-						rotated : e.get('rotated') == 'true',
-					}
-				}
+				if (e.nodeName == 'SubTexture')
+					e.get('name') => mapSubTexture(e)
 		];
 
 		return {
@@ -36,6 +25,20 @@ class Reader {
 			width : Std.parseInt(root.get('width')),
 			height : Std.parseInt(root.get('height')),
 			subTextures : subTextures,
+		}
+	}
+
+	inline function mapSubTexture( xml : Xml ) : Data.SubTexture {
+		return {
+			x : Std.parseInt(xml.get('x')),
+			y : Std.parseInt(xml.get('y')),
+			width : Std.parseInt(xml.get('width')),
+			height : Std.parseInt(xml.get('height')),
+			frameX : Std.parseInt(xml.get('frameX')),
+			frameY : Std.parseInt(xml.get('frameY')),
+			frameWidth : Std.parseInt(xml.get('frameWidth')),
+			frameHeight : Std.parseInt(xml.get('frameHeight')),
+			rotated : xml.get('rotated') == 'true',
 		}
 	}
 }

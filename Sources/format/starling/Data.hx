@@ -1,20 +1,22 @@
 package format.starling;
 
-typedef SubTexture = {
-	x : Int,
-	y : Int,
-	width : Int,
-	height : Int,
-	?frameX : Int,
-	?frameY : Int,
-	?frameWidth : Int,
-	?frameHeight : Int,
-	?rotated : Bool,
+@:structInit
+class SubTexture {
+	public var x : Int;
+	public var y : Int;
+	public var width : Int;
+	public var height : Int;
+	@:optional public var frameX : Int;
+	@:optional public var frameY : Int;
+	@:optional public var frameWidth : Int;
+	@:optional public var frameHeight : Int;
+	@:optional public var rotated : Bool;
 }
 
-typedef TextureAtlas = {
-	imagePath : String,
-	width : Int,
-	height : Int,
-	subTextures : Map<String, SubTexture>,
+@:structInit
+class TextureAtlas {
+	public var imagePath : String;
+	public var width : Int;
+	public var height : Int;
+	public var subTextures : Map<String, SubTexture>;
 }
