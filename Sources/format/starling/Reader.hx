@@ -14,31 +14,33 @@ class Reader {
 			throw 'not a starling texture atlas';
 		}
 
-		var subTextures : Map<String, Data.SubTexture> = [
-			for (e in root.elements())
-				if (e.nodeName == 'SubTexture')
-					e.get('name') => mapSubTexture(e)
-		];
-
 		return {
 			imagePath : root.get('imagePath'),
-			width : Std.parseInt(root.get('width')),
-			height : Std.parseInt(root.get('height')),
-			subTextures : subTextures,
+			width : _int(root, 'width'),
+			height : _int(root, 'height'),
+			subTextures : [
+				for (e in root.elements())
+					if (e.nodeName == 'SubTexture')
+						e.get('name') => mapSubTexture(e)
+			],
 		}
 	}
 
 	inline function mapSubTexture( xml : Xml ) : Data.SubTexture {
 		return {
-			x : Std.parseInt(xml.get('x')),
-			y : Std.parseInt(xml.get('y')),
-			width : Std.parseInt(xml.get('width')),
-			height : Std.parseInt(xml.get('height')),
-			frameX : Std.parseInt(xml.get('frameX')),
-			frameY : Std.parseInt(xml.get('frameY')),
-			frameWidth : Std.parseInt(xml.get('frameWidth')),
-			frameHeight : Std.parseInt(xml.get('frameHeight')),
+			x : _int(xml, 'x'),
+			y : _int(xml, 'y'),
+			width : _int(xml, 'width'),
+			height : _int(xml, 'height'),
+			frameX : _int(xml, 'frameX'),
+			frameY : _int(xml, 'frameY'),
+			frameWidth : _int(xml, 'frameWidth'),
+			frameHeight : _int(xml, 'frameHeight'),
 			rotated : xml.get('rotated') == 'true',
 		}
+	}
+
+	inline function _int( xml : Xml, attribute : String ) : Int {
+		return Std.parseInt(xml.get(attribute));
 	}
 }
