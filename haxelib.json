@@ -1,8 +1,9 @@
 {
-	"name" : "format-starling",
+	"name" : "haxe-format-starling",
+	"license" : "zlib",
 	"url" : "https://github.com/sh-dave/haxe-format-starling",
 	"contributors" : ["sh-dave"],
-	"description" : "starling atlas format",
+	"description" : "starling textureatlas xml reader",
 	"version" : "0.0.1",
-    "classPath" : "Sources"
+        "classPath" : "Sources"
 }
