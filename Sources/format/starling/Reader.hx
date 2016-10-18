@@ -1,13 +1,13 @@
 package format.starling;
 
+import format.starling.Data;
+
 class Reader {
 	var xml : Xml;
 
-	public function new( xml : Xml ) {
-		this.xml = xml;
-	}
+	public function new( xml : Xml ) this.xml = xml;
 
-	public function read() : Data.TextureAtlas {
+	public function read() : TextureAtlas {
 		var root = xml.firstElement();
 
 		if (root.nodeName != 'TextureAtlas') {
@@ -26,7 +26,7 @@ class Reader {
 		}
 	}
 
-	inline function mapSubTexture( xml : Xml ) : Data.SubTexture {
+	inline function mapSubTexture( xml : Xml ) : SubTexture {
 		return {
 			x : _int(xml, 'x'),
 			y : _int(xml, 'y'),
@@ -40,7 +40,5 @@ class Reader {
 		}
 	}
 
-	inline function _int( xml : Xml, attribute : String ) : Int {
-		return Std.parseInt(xml.get(attribute));
-	}
+	inline function _int( xml : Xml, attribute : String ) return Std.parseInt(xml.get(attribute));
 }

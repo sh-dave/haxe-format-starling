@@ -4,6 +4,6 @@
 	"url" : "https://github.com/sh-dave/haxe-format-starling",
 	"contributors" : ["sh-dave"],
 	"description" : "starling textureatlas xml reader",
-	"version" : "0.0.1",
+	"version" : "0.0.2",
         "classPath" : "Sources"
 }

@@ -10,7 +10,7 @@ class SubTexture {
 	@:optional public var frameY : Int;
 	@:optional public var frameWidth : Int;
 	@:optional public var frameHeight : Int;
-	@:optional public var rotated : Bool;
+	public var rotated : Bool;
 }
 
 @:structInit
