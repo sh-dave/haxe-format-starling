@@ -1,6 +1,6 @@
 {
 	"name" : "haxe-format-starling",
-        "classPath" : "src",
+	"classPath" : "src",
 	"url" : "https://github.com/sh-dave/haxe-format-starling",
 	"license" : "zlib"
 }
